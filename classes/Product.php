@@ -1,24 +1,31 @@
 <?php
 class Product {
-   public string $name;
-   public string $description;
-   public float $price;
+   public $title;
+   public $price;
+   public $category;
+   public $image;
    
 
   public function __construct(
-    $name,
-    $description,
-    $price
+    $title,
+    $price,
+    $category,
+    $image = null
   )
   {
-    $this->name = $name;
-    $this->description = $description;
-
-    if (is_numeric($price) && is_float($price)) {
-        $this->price = $price;
+    if (!is_numeric($title) && is_string($title)) {
+        $this->title = $title;
     }
+        
     
+    if (is_numeric($price) && is_float($price)) {
+      $this->price = $price;
     }
+
+    $this->category = $category;
+    
+    $this->image = $image;
+  }
     
 }
 
