@@ -18,8 +18,11 @@ class Product {
     }
         
     
-    if (is_numeric($price) && is_float($price)) {
+    if (is_numeric($price) && is_float($price) && $price >0) {
       $this->price = $price;
+    }
+    else {
+      throw new InvalidArgumentException('Prezzo non valido');
     }
 
     $this->category = $category;

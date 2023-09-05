@@ -7,12 +7,8 @@ require_once __DIR__.'/classes/Kennel.php';
 
 $dogCategory = new Category('cani', 'icona');
 $catCategory = new Category('gatti', 'icona');
-// try {
-//     //code...
-// } catch (\Throwable $th) {
-//     //throw $th;
-// }
-$genericProduct = new Product(
+ try {
+     $genericProduct = new Product(
     'ciotola',
         7.99,
     $dogCategory
@@ -34,7 +30,7 @@ var_dump($catFood);
 
 $dogToy = new Toy(
     'Osso',
-    5.99,
+    7.99,
     $dogCategory,
     'gam'
 );
@@ -43,11 +39,12 @@ var_dump($dogToy);
 
 $kennel = new Kennel(
     'cuccia cani',
-    5.99,
+    19.99,
     $dogCategory,
     196
 );
 
 var_dump($kennel);
-
-
+ } catch (Exception $e) {
+     echo '<div> Si è verificato un errore durante l\'inserimento del prezzo:'.$e->getMessage().'</div>';
+ }
